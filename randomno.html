@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image:url(./smile.jpg);
+        background-size: cover;
+        
+    }</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src=" https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#p1").click(function(){
+                alert("ha ha you cannot close me....😜😊😊!");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("p").on({
+                mouseenter:function(){
+                    $(this).css("background-color","green");
+                 },
+       
+        mouseleave:function(){
+                    $(this).css("background-color","orange");
+                 },
+        click:function(){
+                    $(this).css("background-color","blue");
+                 },         
+
+                })
+            })
+    </script>
+    
+</head>
+<body>
+    <p>Guess a Random no</p>
+    <button id="generate-button">Generate Random Number</button>
+
+  <script>
+    const randomNumberDisplay = document.getElementById("random-number");
+    const generateButton = document.getElementById("generate-button");
+
+    generateButton.addEventListener("click", () => {
+      const randomNum = Math.floor(Math.random() * 100); 
+      randomNumberDisplay.textContent = "Random Number: " + randomNum;
+    });
+  </script>
+ 
+</body>
+</html>

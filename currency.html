@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(money.jpg);
+            background-size: cover;
+        }
+
+        .converter {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h1>Currency Converter</h1>
+        <label for="amount">Enter the  Amount :</label>
+        <input type="number" id="amount" placeholder="Enter amount">
+        <label for="currencyType">Select Currency Type:</label>
+        <select id="currencyType">
+            <option value="rupeesToDollars">Rupees to Dollars</option>
+            <option value="dollarsToRupees">Dollars to Rupees</option>
+        </select>
+        <button onclick="convertCurrency()">Convert</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertCurrency() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const currencyType = document.getElementById('currencyType').value;
+
+            let convertedAmount;
+            
+            if (currencyType === "rupeesToDollars") {
+                
+                convertedAmount = amount /85;
+                document.getElementById('result').innerHTML = `Converted Amount: $${convertedAmount.toFixed(2)}`;
+            } else if (currencyType === "dollarsToRupees") {
+                
+                convertedAmount = amount * 85;
+                document.getElementById('result').innerHTML = `Converted Amount: ₹${convertedAmount.toFixed(2)}`;
+            } else {
+                document.getElementById('result').innerHTML = "Invalid currency type.";
+            }
+        }
+    </script>
+</body>
+</html>

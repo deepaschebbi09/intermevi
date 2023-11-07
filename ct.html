@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TINDI BANDI</title>
+    <link rel="stylesheet" href="tea.css">
+</head>
+<body>
+   
+    <div class="image-container">
+      
+        <div class="overlay-text">   
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              background-image: url(coffe.jpg);
+              background-size: cover;
+            }
+            .container {
+              text-align: center;
+              margin-top: 20px;
+            }
+          </style>
+        </head>
+        <body>
+          <center><h2><b>Drinks Counter</b></h2></center>
+          <div class="container"><b>
+            <label>
+              <input type="radio" name="drink" value="tea"> Tea
+            </label>
+            <label>
+              <input type="radio" name="drink" value="coffee"> Coffee
+            </label>
+            <label> 
+                <input type="radio" name="drink" value="horlicks"> horlicks
+            </label>
+            <label> 
+                <input type="radio" name="drink" value="badam milk">badam milk
+            </label>
+            <br>
+            <button onclick="countDrink()">Add Drink</button>
+            <button onclick="Total()">Total Bill</button>
+            <p>Tea Count: <span id="teaCount">0</span></p>
+            <p>Coffee Count: <span id="coffeeCount">0</span></p>
+            <p>horlicks Count: <span id="horlicksCount">0</span></p>
+            <p>badam milk Count: <span id="badammilkCount">0</span></p></b>
+            <p>total Bill: <span id="Bill">0</span></p>
+          </div>
+         <script>
+            let teaCount = 0;
+            let coffeeCount = 0;
+            let horlicksCount=0;
+            let badammilkCount=0;
+            let tearate=10;
+            let coffeerate=12;
+            let badammilkrate=15;
+            let horlicksrate=20;
+             function countDrink() {
+              const selectedDrink = document.querySelector('input[name="drink"]:checked');
+              if (selectedDrink) {
+                const drinkType = selectedDrink.value;
+                if (drinkType === 'tea') {
+                  teaCount++;
+                  document.getElementById('teaCount').textContent = teaCount;
+                  } else if (drinkType === 'coffee') {
+                  coffeeCount++;
+                  document.getElementById('coffeeCount').textContent = coffeeCount;
+                 }else if (drinkType === 'badam milk') {
+                  badammilkCount++;
+                  document.getElementById('badammilkCount').textContent = badammilkCount;
+                  }else if (drinkType === 'horlicks') {
+                  horlicksCount++;
+                  document.getElementById('horlicksCount').textContent = horlicksCount;
+                }
+            }
+          
+            }function Total(){
+                var total=parseInt(document.getElementById ("Bill").innerHTML);
+                total+=parseInt(document.getElementById("teaCount").innerHTML)*parseInt(tearate);
+                total+=parseInt(document.getElementById("coffeeCount").innerHTML)*parseInt(coffeerate);
+                total+=parseInt(document.getElementById("horlicksCount").innerHTML)*parseInt(horlicksrate);
+                total+=parseInt(document.getElementById("badammilkCount").innerHTML)*parseInt(badammilkrate);
+            }
+          </script>
+        </body>
+        </html>
+    </div>
+
+    <script src="tea.js"></script>
+</body>
+</html>
